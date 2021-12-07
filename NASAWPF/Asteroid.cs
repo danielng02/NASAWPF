@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,24 +9,37 @@ namespace NASAWPF
 {
     public class Asteroid
     {
-        private DateTime date;
-        private string name;
-        private string id;
-        private string neoID;
-        private string jplURL;
-        private double absMagnitude;
-        private double estDiameter;
-        private bool isHazardous;
-        private bool isSentry;
+        [JsonProperty("near_earth_objects")]
+        public DateTime Date { get; set; }
+        
+        [JsonProperty("name")]
+        public string Name { get; set; }
+        
+        [JsonProperty("id")]
+        public string Id { get; set; }
+       
+        [JsonProperty("neo_reference_id")]
+        public string NeoID { get; set; }
+        
+        [JsonProperty("nasa_jpl_url")]
+        public string JplURL { get; set; }
+        
+        [JsonProperty("absolute_magnitude_h")]
+        public double AbsMagnitude { get; set; }
+       
+        [JsonProperty("estimated_diameter")]
+        public double EstDiameter { get; set; }
+        
+        [JsonProperty("is_potentially_hazardous_asteroid")]
+        public bool IsHazardous { get; set; }
+       
+        [JsonProperty("is_sentry_object")]
+        public bool IsSentry { get; set; }
 
-        public DateTime Date { get => date; set => date = value; }
-        public string Name { get => name; set => name = value; }
-        public string Id { get => id; set => id = value; }
-        public string NeoID { get => neoID; set => neoID = value; }
-        public string JplURL { get => jplURL; set => jplURL = value; }
-        public double AbsMagnitude { get => absMagnitude; set => absMagnitude = value; }
-        public double EstDiameter { get => estDiameter; set => estDiameter = value; }
-        public bool IsHazardous { get => isHazardous; set => isHazardous = value; }
-        public bool IsSentry { get => isSentry; set => isSentry = value; }
+
+        public override string ToString()
+        {
+            return $"{Name}:{Id}:{NeoID}:{JplURL}:{AbsMagnitude}:{EstDiameter}:{IsHazardous}:{IsSentry}";
+        }
     }
 }
