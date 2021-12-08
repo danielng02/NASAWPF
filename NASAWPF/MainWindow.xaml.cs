@@ -40,6 +40,8 @@ namespace NASAWPF
             string endDate = Convert.ToDateTime(DatePickEnd.Text).ToString("yyyy-MM-dd");
             string JSON = String.Format("https://api.nasa.gov/neo/rest/v1/feed?start_date={0}&end_date={1}&api_key=fDYUz8mf87gs1b8txmdHol2s7eTlQLJeL9PfnGql", startDate, endDate);
             label01.Content = JSON;
+
+            var jobject = JsonConvert.DeserializeObject<NeoRoot>(JSON);
         }
     }
 }
