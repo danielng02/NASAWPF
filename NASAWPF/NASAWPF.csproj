@@ -58,6 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="NeoCollection.cs" />
+    <Compile Include="objects\Approach.cs" />
+    <Compile Include="objects\MissDistance.cs" />
+    <Compile Include="objects\Velocity.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,8 +70,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Asteroid.cs" />
-    <Compile Include="AsteroidCollection.cs" />
+    <Compile Include="objects\EstDiameter.cs" />
+    <Compile Include="objects\Neo.cs" />
+    <Compile Include="objects\NeoLink.cs" />
+    <Compile Include="NeoRoot.cs" />
+    <Compile Include="objects\Links.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
