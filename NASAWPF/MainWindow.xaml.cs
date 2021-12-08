@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Net.Http;
 
 namespace NASAWPF
 {
@@ -25,6 +27,8 @@ namespace NASAWPF
         public MainWindow()
         {
             InitializeComponent();
+            string JSON = String.Format("https://api.nasa.gov/neo/rest/v1/feed?start_date=2021-05-08&end_date=2021-05-09&api_key=fDYUz8mf87gs1b8txmdHol2s7eTlQLJeL9PfnGql");
+            Root jobject = JsonConvert.DeserializeObject<Root>(JSON);
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -41,7 +45,7 @@ namespace NASAWPF
             string JSON = String.Format("https://api.nasa.gov/neo/rest/v1/feed?start_date={0}&end_date={1}&api_key=fDYUz8mf87gs1b8txmdHol2s7eTlQLJeL9PfnGql", startDate, endDate);
             label01.Content = JSON;
 
-            var jobject = JsonConvert.DeserializeObject<NeoRoot>(JSON);
+            Root jobject = JsonConvert.DeserializeObject<Root>(JSON);
         }
     }
 }
