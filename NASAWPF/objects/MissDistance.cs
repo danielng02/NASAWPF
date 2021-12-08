@@ -8,9 +8,9 @@ namespace NASAWPF
 {
     public class MissDistance
     {
-        public decimal astronomical { get; set; }
-        public decimal lunar { get; set; }
-        public decimal kilometers { get; set; }
-        public decimal miles { get; set; }
+        public string astronomical { get; set; }
+        public string lunar { get; set; }
+        public string kilometers { get; set; }
+        public string miles { get; set; }
     }
 }
