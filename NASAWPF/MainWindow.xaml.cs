@@ -24,11 +24,10 @@ namespace NASAWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string JSON  { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            string JSON = String.Format("https://api.nasa.gov/neo/rest/v1/feed?start_date=2021-05-08&end_date=2021-05-09&api_key=fDYUz8mf87gs1b8txmdHol2s7eTlQLJeL9PfnGql");
-            Root jobject = JsonConvert.DeserializeObject<Root>(JSON);
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -36,16 +35,24 @@ namespace NASAWPF
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
             
 
             string startDate = Convert.ToDateTime(DatePickStart.Text).ToString("yyyy-MM-dd");
             string endDate = Convert.ToDateTime(DatePickEnd.Text).ToString("yyyy-MM-dd");
-            string JSON = String.Format("https://api.nasa.gov/neo/rest/v1/feed?start_date={0}&end_date={1}&api_key=fDYUz8mf87gs1b8txmdHol2s7eTlQLJeL9PfnGql", startDate, endDate);
-            label01.Content = JSON;
+            JSON = String.Format("https://api.nasa.gov/neo/rest/v1/feed?start_date={0}&end_date={1}&api_key=fDYUz8mf87gs1b8txmdHol2s7eTlQLJeL9PfnGql", startDate, endDate);
+            
+            WebClient client = new WebClient();
 
-            Root jobject = JsonConvert.DeserializeObject<Root>(JSON);
+            string myJSON = client.DownloadString(JSON);
+
+            Root myClass = JsonConvert.DeserializeObject<Root>(myJSON);
+
+            List<Neo> list = new List<Neo>();
+
+            label01.Content = myClass.element_count;
         }
+
     }
 }

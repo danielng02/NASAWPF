@@ -16,13 +16,20 @@
 
         <DatePicker x:Name="DatePickStart" HorizontalAlignment="Left" Margin="49,67,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="DatePickEnd" HorizontalAlignment="Left" Margin="49,127,0,0" VerticalAlignment="Top"/>
-        
+
         <Label Content="Start Date" HorizontalAlignment="Left" Margin="49,41,0,0" VerticalAlignment="Top" Width="106"/>
         <Label Content="End Date" HorizontalAlignment="Left" Margin="49,101,0,0" VerticalAlignment="Top" Width="106"/>
-        
+
         <Button Content="Button" HorizontalAlignment="Left" Margin="49,175,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        
-        <Label x:Name="label01" Content="Label" HorizontalAlignment="Left" Margin="301,77,0,0" VerticalAlignment="Top"/>
+
+        <Label x:Name="label01" Content="Label" HorizontalAlignment="Left" Margin="206,65,0,0" VerticalAlignment="Top"/>
+        <ListView Name="List" ItemsSource="{Binding .}" HorizontalAlignment="Left" Height="317" Margin="308,41,0,0" VerticalAlignment="Top" Width="424">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Window>
