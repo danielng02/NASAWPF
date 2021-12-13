@@ -1,0 +1,132 @@
+﻿<Window x:Class="NASAWPF.DetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NASAWPF"
+        mc:Ignorable="d"
+        Title="DetailsWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0">
+                <Label Content="Name:"/>
+                <Label Content="{Binding name}" Margin="20, 0" />
+            </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0">
+                <Label Content="ID:"/>
+            <Label Content="{Binding id}" Margin="20, 0" />
+            </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="0">
+            <Label Content="Neo Reference ID:"/>
+            <Label Content="{Binding  neo_reference_id}" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="0">
+            <Label Content="NASA JPL URL:"/>
+            <Label Content="{Binding nasa_jpl_url}" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.Column="0">
+            <Label Content="Absolute Magnitude:"/>
+            <Label Content="{Binding absolute_magnitude_h}" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Grid.Column="0">
+            <Label Content="Hazardous:"/>
+            <Label Content="{Binding is_potentially_hazardous_asteroid}" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="6" Grid.Column="0">
+            <Label Content="Sentry Object:"/>
+            <Label Content="{Binding is_sentry_object}" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <Label Content="Min Diameter - Meters"/>
+            <Label x:Name="min_diameter_m"  Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Content="Max Diameter - Meters"/>
+            <Label x:Name="max_diameter_m" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <Label Content="Min Diameter - Feet"/>
+            <Label x:Name="min_diameter_f" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <Label Content="Max Diameter - Feet"/>
+            <Label x:Name="max_diameter_f" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.Column="1">
+            <Label Content="Close Approach Date"/>
+            <Label x:Name="approach_date" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Grid.Column="1">
+            <Label Content="Epoch Close Approach Date"/>
+            <Label x:Name="epoch_approach_date" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="6" Grid.Column="1">
+            <Label Content="Orbiting Body"/>
+            <Label x:Name="orbitBody" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="2">
+            <Label Content="Relative Velocity - Km/s"/>
+            <Label x:Name="relativeVelocity_kms" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <Label Content="Relative Velocity - Km/h"/>
+            <Label x:Name="relativeVelocity_kmh" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <Label Content="Relative Velocity - M/h"/>
+            <Label x:Name="relativeVelocity_mh" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="2">
+            <Label Content="Miss Distance - lunar"/>
+            <Label x:Name="missDistance_lunar" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.Column="2">
+            <Label Content="Miss Distance - astronomical"/>
+            <Label x:Name="missDistance_astronomical" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Grid.Column="2">
+            <Label Content="Miss Distance - kilometers"/>
+            <Label x:Name="missDistance_kilometers" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="6" Grid.Column="2">
+            <Label Content="Miss Distance - miles"/>
+            <Label x:Name="missDistance_miles" Margin="20, 0" />
+        </StackPanel>
+
+
+    </Grid>
+</Window>

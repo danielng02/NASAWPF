@@ -68,6 +68,17 @@ namespace NASAWPF
             var textJSON = await client.GetAsync(url);
             return new TaskObject { json = await textJSON.Content.ReadAsStringAsync() };
         }
+        private void Neo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Neo n = (Neo)(sender as ListView).SelectedItem;
+            DataContext = n;
+        }
+        private void Neo_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Neo n = (Neo)((sender as ListView).SelectedItem);
+            DetailsWindow dw = new DetailsWindow(n);
+            dw.ShowDialog();
+        }
     }
     public class TaskObject
     {

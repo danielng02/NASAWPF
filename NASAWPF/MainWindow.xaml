@@ -15,10 +15,12 @@
         <Label Content="Start Date" HorizontalAlignment="Left" Margin="49,41,0,0" VerticalAlignment="Top" Width="106"/>
         <Label Content="End Date" HorizontalAlignment="Left" Margin="49,101,0,0" VerticalAlignment="Top" Width="106"/>
 
-        <Button Content="Button" HorizontalAlignment="Left" Margin="49,175,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Load" HorizontalAlignment="Left" Margin="49,175,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
-        <Label x:Name="label01" Content="Label" HorizontalAlignment="Left" Margin="206,65,0,0" VerticalAlignment="Top"/>
-        <ListView Name="ListView" ItemsSource="{Binding ListOfNeos}" HorizontalAlignment="Left" Height="317" Margin="308,41,0,0" VerticalAlignment="Top" Width="424">
+        <Label Content="Asteroids:" HorizontalAlignment="Left" Margin="206,67,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.477,1.741"/>
+        <Label x:Name="label01" Content="" HorizontalAlignment="Left" Margin="217,101,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.09,1.055"/>
+
+        <ListView Name="ListView" ItemsSource="{Binding ListOfNeos}" SelectionChanged="Neo_SelectionChanged" MouseDoubleClick="Neo_MouseDoubleClick" HorizontalAlignment="Left" Height="317" Margin="308,41,0,0" VerticalAlignment="Top" Width="424">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
