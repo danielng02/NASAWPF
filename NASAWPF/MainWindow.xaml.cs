@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
+using System.Collections.ObjectModel;
 using System.Net.Http;
 
 namespace NASAWPF
@@ -24,35 +26,52 @@ namespace NASAWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string JSON  { get; set; }
+        public string linkJSON  { get; set; }
+        public static ObservableCollection<Neo> ListOfNeos { get; set; }
+        public static Root data;
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         public void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            DataLoad();
+        }
+        private async void DataLoad()
+        {
+            string apiKey = "fDYUz8mf87gs1b8txmdHol2s7eTlQLJeL9PfnGql";
+
 
             string startDate = Convert.ToDateTime(DatePickStart.Text).ToString("yyyy-MM-dd");
             string endDate = Convert.ToDateTime(DatePickEnd.Text).ToString("yyyy-MM-dd");
-            JSON = String.Format("https://api.nasa.gov/neo/rest/v1/feed?start_date={0}&end_date={1}&api_key=fDYUz8mf87gs1b8txmdHol2s7eTlQLJeL9PfnGql", startDate, endDate);
-            
-            WebClient client = new WebClient();
+            linkJSON = String.Format("https://api.nasa.gov/neo/rest/v1/feed?start_date={0}&end_date={1}&api_key={2}", startDate, endDate, apiKey);
 
-            string myJSON = client.DownloadString(JSON);
+            TaskObject response = await LinkRead(linkJSON);
 
-            Root myClass = JsonConvert.DeserializeObject<Root>(myJSON);
+            Regex reg = new Regex(@"\d{4}[-]\d{2}[-]\d{2}");
+            string myJSON = reg.Replace(response.json, "date", 1, 500);
 
-            List<Neo> list = new List<Neo>();
+            data = JsonConvert.DeserializeObject<Root>(myJSON);
 
-            label01.Content = myClass.element_count;
+            ListOfNeos = new ObservableCollection<Neo>(data.near_earth_objects.neos);
+
+            ListView.ItemsSource = ListOfNeos;
+
+            label01.Content = data.element_count;
         }
+
+        public static async Task<TaskObject> LinkRead(string url)
+        {
+            HttpClient client = new HttpClient();
+            var textJSON = await client.GetAsync(url);
+            return new TaskObject { json = await textJSON.Content.ReadAsStringAsync() };
+        }
+    }
+    public class TaskObject
+    {
+        public string json { get; set; }
 
     }
 }

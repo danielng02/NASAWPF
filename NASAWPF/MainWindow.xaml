@@ -7,11 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Menu HorizontalAlignment="Left" Height="17" Margin="10,0,0,0" VerticalAlignment="Top" Width="145" IsMainMenu="True">
-            <MenuItem Header="Page1" Click="MenuItem_Click" />
-            <MenuItem Header="Page2" />
-            <MenuItem Header="Page3" />
-        </Menu>
 
 
         <DatePicker x:Name="DatePickStart" HorizontalAlignment="Left" Margin="49,67,0,0" VerticalAlignment="Top"/>
@@ -23,7 +18,7 @@
         <Button Content="Button" HorizontalAlignment="Left" Margin="49,175,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
         <Label x:Name="label01" Content="Label" HorizontalAlignment="Left" Margin="206,65,0,0" VerticalAlignment="Top"/>
-        <ListView Name="List" ItemsSource="{Binding .}" HorizontalAlignment="Left" Height="317" Margin="308,41,0,0" VerticalAlignment="Top" Width="424">
+        <ListView Name="ListView" ItemsSource="{Binding ListOfNeos}" HorizontalAlignment="Left" Height="317" Margin="308,41,0,0" VerticalAlignment="Top" Width="424">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
