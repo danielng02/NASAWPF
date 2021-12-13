@@ -29,14 +29,19 @@ namespace NASAWPF
             DataContext = n;
             min_diameter_m.Content = n.estimated_diameter.meters.estimated_diameter_min;
             max_diameter_m.Content = n.estimated_diameter.meters.estimated_diameter_max;
+
             min_diameter_f.Content = n.estimated_diameter.feet.estimated_diameter_min;
             max_diameter_f.Content = n.estimated_diameter.feet.estimated_diameter_max;
-            approach_date.Content = n.close_approach_data[0].close_approach_date;
+
+            approach_date.Content = n.close_approach_data[0].close_approach_date_full;
             epoch_approach_date.Content = n.close_approach_data[0].epoch_date_close_approach;
+
             orbitBody.Content = n.close_approach_data[0].orbiting_body;
+
             relativeVelocity_kms.Content = n.close_approach_data[0].relative_velocity.kilometers_per_second;
             relativeVelocity_kmh.Content = n.close_approach_data[0].relative_velocity.kilometers_per_hour;
             relativeVelocity_mh.Content = n.close_approach_data[0].relative_velocity.miles_per_hour;
+
             missDistance_lunar.Content = n.close_approach_data[0].miss_distance.lunar;
             missDistance_astronomical.Content = n.close_approach_data[0].miss_distance.astronomical;
             missDistance_kilometers.Content = n.close_approach_data[0].miss_distance.kilometers;
