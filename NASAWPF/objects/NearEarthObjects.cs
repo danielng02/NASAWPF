@@ -9,10 +9,7 @@ namespace NASAWPF
 {
     public class NearEarthObjects
     {
-        [JsonProperty("dateSpotted")]
-        public Neo[] neos01 { get; set; }
-
-        [JsonProperty("dateSpotted")]
-        public Neo[] neos02 { get; set; }
+        [JsonProperty("eraseDate")]
+        public List<Neo> neos { get; set; }
     }
 }

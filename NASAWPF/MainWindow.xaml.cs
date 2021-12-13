@@ -51,14 +51,11 @@ namespace NASAWPF
             TaskObject response = await LinkRead(linkJSON);
 
             Regex rgx = new Regex(@"\d{4}[-]\d{2}[-]\d{2}");
-            string myJSON = rgx.Replace(response.json, "dateSpotted");
+            string myJSON = rgx.Replace(response.json, "eraseDate");
 
             data = JsonConvert.DeserializeObject<Root>(myJSON);
 
-            List<Neo> mergeList = new List<Neo>(data.near_earth_objects.neos01);
-            mergeList.AddRange(data.near_earth_objects.neos02);
-
-            ListOfNeos = new ObservableCollection<Neo>(mergeList);
+            ListOfNeos = new ObservableCollection<Neo>(data.near_earth_objects.neos);
 
             ListView.ItemsSource = ListOfNeos;
 
