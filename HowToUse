@@ -1,0 +1,5 @@
+Start Date - Pick a starting date in the DatePicker - needs to be in the past
+End Date - Pick an ending date in the DatePicker - needs to be max 7 days from the starting date and needs to be in the past
+Asteroid count is displayed next to the DatePickers
+ListView - Displays all the asteroids in the date range
+ListView Items - You can doubleclick to open a DetailsWindow, where details are shown.
