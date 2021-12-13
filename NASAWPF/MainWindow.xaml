@@ -19,11 +19,19 @@
 
         <Label x:Name="label01" Content="Label" HorizontalAlignment="Left" Margin="206,65,0,0" VerticalAlignment="Top"/>
         <ListView Name="ListView" ItemsSource="{Binding ListOfNeos}" HorizontalAlignment="Left" Height="317" Margin="308,41,0,0" VerticalAlignment="Top" Width="424">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="Name: " />
+                        <TextBlock Text="{Binding name}" FontWeight="Bold" />
+                        <TextBlock Text=", " />
+                        <TextBlock Text="ID: " />
+                        <TextBlock Text="{Binding id}" FontWeight="Bold" />
+                        <TextBlock Text=" Dangerous: " />
+                        <TextBlock Text="{Binding is_potentially_hazardous_asteroid}" TextDecorations="Underline" Foreground="Red" />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
     </Grid>
